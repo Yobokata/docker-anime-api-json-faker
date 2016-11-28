@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+  php:
+    image: ismaail/json-server-faker:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
