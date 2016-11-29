@@ -6,6 +6,7 @@ const faker = require("faker");
 const _ = require("lodash");
 
 const port = 8200;
+const host = 'api.anime.dev';
 
 // Allow CORS
 app.use(cors());
@@ -23,7 +24,7 @@ let data = _.times(14, function(n) {
     let id = n + 1;
     return {
         id: id,
-        poster: `http://localhost:${port}/images/posters/${id}.jpg`,
+        poster: `http://${host}/images/posters/${id}.jpg`,
         title: faker.lorem.sentence(3),
         videos: faker.random.number(300),
         description: faker.lorem.sentences(8)
