@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const delay = require('express-delay');
 const app = express();
@@ -7,6 +8,9 @@ const _ = require("lodash");
 
 const port = 8200;
 const host = 'api.anime.dev';
+
+// To Get Post params
+app.use(bodyParser.json());
 
 // Allow CORS
 app.use(cors());
@@ -61,6 +65,19 @@ app.get('/anime/:id', (req, res) => {
     }
 
     res.send(obj);
+});
+
+app.post('/login', (req, res) => {
+    if ('doe' !== req.body.username || 'password' !== req.body.password) {
+        res.status(403)
+           .send('Wrong Credentials');
+        return;
+    }
+
+    res.send({
+        username: "Jhon Doe",
+        accessToken: "Pr6UcSRzjIx5uHnodLvqdk8vPsikg="
+    });
 });
 
 
