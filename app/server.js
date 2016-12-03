@@ -6,8 +6,8 @@ const app = express();
 const faker = require("faker");
 const _ = require("lodash");
 
-const port = 8200;
-const host = 'api.anime.dev';
+const port = process.env.VIRTUAL_PORT || 8200;
+const host = process.env.VIRTUAL_HOST || 'localhost';
 
 // To Get Post params
 app.use(bodyParser.json());
