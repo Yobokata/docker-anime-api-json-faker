@@ -41,7 +41,7 @@ let animes = _.times(89, function(n) {
  * @return {Object}
  */
 function find(id) {
-  return data.find(element => {
+  return animes.find(element => {
     return parseInt(id) === element.id
   });
 }
