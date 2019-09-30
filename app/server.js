@@ -28,7 +28,7 @@ let animes = _.times(89, function(n) {
   let id = n + 1;
   return {
     id: id,
-    poster: `http://${host}/images/posters/${id}.jpg`,
+    poster: `http://${host}:${port}/images/posters/${id}.jpg`,
     title: faker.lorem.sentence(3),
     videos: faker.random.number(300),
     description: faker.lorem.sentences(8)
@@ -75,8 +75,8 @@ app.get('/anime', (req, res) => {
     total: animes.length,
     current_page: page,
     per_page: perPage,
-    next_page_url: (page < maxPage) ? `http://${host}/anime/?page=${nextPage}` : '',
-    prev_page_url: (page > 1) ? `http://${host}/anime/?page=${prevPage}` : '',
+    next_page_url: (page < maxPage) ? `http://${host}:${port}/anime/?page=${nextPage}` : '',
+    prev_page_url: (page > 1) ? `http://${host}:${port}/anime/?page=${prevPage}` : '',
     data: data
   });
 });
@@ -111,5 +111,5 @@ app.post('/login', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`JSON Server is running on http://localhost:${port}`);
+  console.log(`JSON Server is running on http://${host}:${port}`);
 });
