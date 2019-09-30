@@ -1,8 +1,10 @@
 version: "2"
 
 services:
-  php:
-    image: ismaail/json-server-faker:latest
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
+    api-faker:
+        image: ismaail/anime-faker-api:latest
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        ports:
+            - "8200:8200"

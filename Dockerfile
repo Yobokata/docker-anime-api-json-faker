@@ -1,4 +1,4 @@
-FROM mhart/alpine-node
+FROM node:12-alpine
 MAINTAINER ismaail <contact@ismaail.com>
 
 # set environmental property for node modules
